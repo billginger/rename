@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <title>批量重命名文件</title>
+    <link rel="stylesheet" type="text/css" href="./styles.css">
+  </head>
+  <body>
+    <div>查找：<input type="text" id="text-characters-find" /></div>
+    <div>替换：<input type="text" id="text-characters-replace" /></div>
+    <div id="buttons">
+      <button id="button-files-select">选择文件...</button>
+      <button id="button-files-rename">批量重命名</button>
+    </div>
+    <script src="renderer.js"></script>
+  </body>
+</html>
