@@ -1,0 +1,22 @@
+{
+  "name": "rename",
+  "version": "1.0.0",
+  "description": "a rename program built on Electron",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/billginger/rename.git"
+  },
+  "author": "Fenggong Jiang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/billginger/rename/issues"
+  },
+  "homepage": "https://github.com/billginger/rename#readme",
+  "devDependencies": {
+    "electron": "^23.1.0"
+  }
+}
