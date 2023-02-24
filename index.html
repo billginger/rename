@@ -7,12 +7,26 @@
     <link rel="stylesheet" type="text/css" href="./styles.css">
   </head>
   <body>
-    <div>查找：<input type="text" id="text-characters-find" /></div>
+    <div>查找：<input type="text" id="text-characters-search" /></div>
     <div>替换：<input type="text" id="text-characters-replace" /></div>
     <div id="buttons">
       <button id="button-files-select">选择文件...</button>
       <button id="button-files-rename">批量重命名</button>
     </div>
+    <table>
+      <thead>
+        <tr>
+          <th>序号</th>
+          <th>原文件名</th>
+          <th>新文件名</th>
+        </tr>
+      </thead>
+      <tbody id="files-list">
+        <tr>
+          <td colspan="3" class="text-center">尚未选择任何文件</td>
+        </tr>
+      </tbody>
+    </table>
     <script src="renderer.js"></script>
   </body>
 </html>

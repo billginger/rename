@@ -1,10 +1,20 @@
 const { app, BrowserWindow, ipcMain, dialog } = require('electron')
 const path = require('path')
 
+const handleFilesSelect = async () => {
+  const options = {
+    properties: ['openFile', 'multiSelections']
+  }
+  const { canceled, filePaths } = await dialog.showOpenDialog(options)
+  if (canceled) {
+    return
+  } else {
+    return filePaths
+  }
+}
+
 const createWindow = () => {
   const win = new BrowserWindow({
-    width: 800,
-    height: 600,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js')
     }
@@ -12,19 +22,7 @@ const createWindow = () => {
 
   win.loadFile('index.html')
 
-  ipcMain.handle('files:select', () => {
-    dialog.showOpenDialog({
-      properties: ['openFile', 'multiSelections']
-    }).then(result => {
-      console.log(result.canceled)
-      console.log(result.filePaths)
-    }).catch(err => {
-      console.log(err)
-    })
-  })
-
-  // 打开开发工具
-  win.webContents.openDevTools()
+  ipcMain.handle('files:select', handleFilesSelect)
 }
 
 app.whenReady().then(() => {

@@ -1,3 +1,24 @@
 #buttons {
   margin-top: 5px;
 }
+
+table {
+  margin-top: 10px;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+table th {
+  padding: 5px;
+  background: #eee;
+  border: 1px solid #ccc;
+}
+
+table td {
+  padding: 5px;
+  border: 1px solid #ccc;
+}
+
+.text-center {
+  text-align: center;
+}
