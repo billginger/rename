@@ -1,5 +1,6 @@
 const { app, BrowserWindow, ipcMain, dialog } = require('electron')
 const path = require('path')
+const fs = require('fs')
 
 const handleFilesSelect = async () => {
   const options = {
@@ -13,6 +14,17 @@ const handleFilesSelect = async () => {
   }
 }
 
+const handleFilesRename = (event, filePaths) => {
+  try {
+    for (let filePath of filePaths) {
+      fs.renameSync(filePath[0], filePath[1])
+    }
+  } catch (err) {
+    return err
+  }
+  return 'success'
+}
+
 const createWindow = () => {
   const win = new BrowserWindow({
     webPreferences: {
@@ -23,6 +35,7 @@ const createWindow = () => {
   win.loadFile('index.html')
 
   ipcMain.handle('files:select', handleFilesSelect)
+  ipcMain.handle('files:rename', handleFilesRename)
 }
 
 app.whenReady().then(() => {
